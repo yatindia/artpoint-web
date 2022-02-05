@@ -124,7 +124,7 @@ const addProduct= async()=>{
                                 <select class="form-control form-select" bind:value={inputs.subCategory}>
                                     <option value="">Sub Category.. </option>
                                     {#each sCate as item}
-                                        <option value={item}>{item}</option>
+                                        <option value={item.text}>{item.text}</option>
                                     {/each}
                                 </select>
                             </div>

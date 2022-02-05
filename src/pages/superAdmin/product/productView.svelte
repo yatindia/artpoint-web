@@ -34,7 +34,7 @@
         .then((response) => response.json())
         .then((datas) => {
             product = datas.data;
-            let cate = categories.find(tmp=>tmp.category===datas.data.category)
+            let cate = categories.find(tmp=>tmp.category === datas.data.category)
             sCate = cate.subCategory
         })
     })
@@ -161,7 +161,7 @@
                                     <select class="form-control form-select" bind:value={product.subCategory}>
                                         <option value="">Sub Category.. </option>
                                         {#each sCate as item}
-                                            <option value={item}>{item}</option>
+                                            <option value={item.text}>{item.text}</option>
                                         {/each}
                                     </select>
                                 </div>

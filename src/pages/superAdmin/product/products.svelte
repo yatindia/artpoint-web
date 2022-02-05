@@ -48,7 +48,19 @@ const fetchProduct =async()=>{
 }
 
 const search =async()=>{
-    fetchProduct()
+    await fetch(`${API_URL}/products/search`,{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            category : inputs.category ,
+            subCategory : inputs.subCategory 
+        })
+    })
+    .then((response) => response.json())
+    .then((datas) => {
+        products = datas.data;
+        console.log(products);
+    })
 }
 
 </script>
@@ -69,7 +81,7 @@ const search =async()=>{
                     <select class="form-control form-select" bind:value={inputs.subCategory}>
                         <option value="">Sub Category.. </option>
                         {#each sCate as item}
-                            <option value={item}>{item}</option>
+                            <option value={item.text}>{item.text}</option>
                         {/each}
                     </select>
                 </div>

@@ -3,8 +3,8 @@
     import Edit from "../../../component/category/edit.svelte"
 
 
-    let showCategory= false
-    let editCategory = true
+    let showCategory= true
+    let editCategory = false
 
 
 </script>

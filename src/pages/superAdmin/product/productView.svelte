@@ -21,6 +21,7 @@
         category:"",
         subCategory:"",
         image:"",
+        trending: "",
         _id:""
     }
 
@@ -34,6 +35,7 @@
         .then((response) => response.json())
         .then((datas) => {
             product = datas.data;
+            console.log(datas.data);
             let cate = categories.find(tmp=>tmp.category === datas.data.category)
             sCate = cate.subCategory
         })
@@ -172,13 +174,14 @@
                                     <img src= {`${product.image}`} alt="pic" class='img img-responsive'/>
                                 </div>
                                 <div class="col-sm-6">
-
-                                    <!-- <div class="btnCon row">
-                                        <div class="uploadBtn " on:click={()=>{fileinput.click();}}><i class="fa fa-picture-o fa-lg"></i> Change Image</div>
-                                        <input style="display:none" type="file" on:change={(e)=>imageChange(e)} bind:this={fileinput}>
-                                        <button type="button" on:click={imageUpload}><i class="fa fa-upload fa-lg"></i> Upload</button>
-                                    </div> -->
+                            
+                                    <select class="form-select" aria-label="Default select example" bind:value={product.trending}>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                    <small for="">Is Ths A Trending Product</small>
                                 </div>
+        
                             </div>
                             <div class="row m-auto justify-content-center border-bottom">
                                 <p class='{message.style}'><b>{message.msg}</b></p>
@@ -235,7 +238,7 @@
     margin: 10px;
     border: 2px dotted rgba(49, 49, 49, 0.37)
 }
-.upload button{
+/* .upload button{
     width: 40%;
     height: 40px;
     margin: 10px;
@@ -243,7 +246,7 @@
     font-weight: 500;
     padding: 4px 10px;
     border: 2px solid #0DB8DE;
-}
+} */
 .uploadBtn{
     width: auto;
     height: 40px;
@@ -255,13 +258,13 @@
     padding: 4px 10px;
 }
 
-.upload button:hover,.uploadBtn:hover{
+/* .upload button:hover,.uploadBtn:hover{
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     border: 3px solid #0DB8DE;
     color: #04718a;
     font-weight: 600;
-}
+} */
 .btnCon{
     width: 100%;
     position: absolute;

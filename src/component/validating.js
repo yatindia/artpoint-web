@@ -11,6 +11,9 @@ export const productValid = (values)=>{
     if(!values.image){
         return{error:"*Upload Product Image.", valid:false}
     }
+    if(!values.trending){
+        return{error:"*Enter Product Trend Status", valid:false}
+    }
     return {error:"All are valid -- Saving...", valid:true}
 }
 

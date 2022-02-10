@@ -1,5 +1,5 @@
- export const API_URL = 'http://127.0.0.1:5000'
-// export const API_URL ='https://faa4-2405-201-e031-7045-186e-cdd1-a22a-97d2.ngrok.io'
+export const API_URL = 'http://127.0.0.1:5000'
+
 
 // ----Image data to Blob-------
 export const dataURIToBlob = (dataURI) => {

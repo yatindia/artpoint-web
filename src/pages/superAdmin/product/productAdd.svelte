@@ -12,7 +12,8 @@ let inputs ={
     title:"",
     category:"",
     subCategory:"",
-    image:""
+    image:"",
+    trending: "no"
 }
 
 let imageShow = null
@@ -70,7 +71,9 @@ const imageChange=(event)=>{
 }
 
 const addProduct= async()=>{  
+    console.log(inputs);
     let validate = productValid(inputs)
+    console.log(inputs);
     if(validate.valid == true){
         message.style ='text-info'
         message.msg = validate.error
@@ -143,7 +146,19 @@ const addProduct= async()=>{
                                 <input type="text" class="form-control form-input" placeholder="Image Link" bind:value={inputs.image}/>
                                 <img src="{inputs.image}" alt="pic" class='img img-responsive p-1 m-3'/>
                         </div>
+                        
+                        <div class="col-sm-6">
+                            
+                            <select class="form-select" aria-label="Default select example" bind:value={inputs.trending}>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                            <small for="">Is Ths A Trending Product</small>
+                        </div>
+
                     </div>
+                 
+            
                     <!-- <div class="row upload">
                         <div class="col-sm-6 d-flex">
                             <div class="uploadBtn" on:click={()=>{fileinput.click();}}><i class="fa fa-picture-o fa-lg"></i> Pick Image</div>
